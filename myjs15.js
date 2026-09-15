@@ -1,29 +1,32 @@
-// แบบที่ 5 : ผสม + Callback function ***
-// ตัวอย่างการใช้งานเอาฟังก์ชันไปเป็นค่าอาร์กิวเมนต์เพื่อส่งให้พารามิเตอร์
+// Object ใชักับตัวแปรทำให้ตัวแปร 1 ตัวเก็บได้มากกว่า 1 ข้อมูล
+// เพียงแต่ว่า แต่ละข้อมูลจะมี key กำกับ และมองเห็น
+// object ธรรมดา
+let person = {
+  name: "Kanokwan",
+  age: 20,
+  gender: "male",
+};
  
-function test01(x, y) {
-  console.log(x);
-  y();  //callback function
-}
+// object ใน array
+let student = [
+  { id: 1111, name: "Sombat", gpa: 3.5 },
+  { id: 2222, name: "Nattapong", gpa: 3.6 },
+  { id: 3333, name: "Kanokwan", gpa: 3.7 },
+  { id: 4444, name: "Nattapong", gpa: 3.8 },
+];
  
-function test02(a, b, c) {
-  let data = a + c(20);  //callback function
-  console.log(data);
-  b(11, 22, 33); //callback function
-}
- 
-// -------------------------------------
-//call function
-test01(555, function () {
-  console.log("Wow wow wow");
+// เข้าถึงทุกข้อมูล ของ object ใน array
+student.map((item, index) => {
+  console.log(`ID: ${item.id}`);
+  console.log(`NAME: ${item.name}`);
+  console.log(`GPA: ${item.gpa}`);
+  console.log("------------------------");
 });
  
-test02(
-  100,
-  (x, y, z) => {
-    console.log(x + y + z);
-  },
-  (m) => {
-    return m * 5;
-  },
-);
+//----------------------
+student.map(function (item, index) {
+  console.log(`ID: ${item.id}`);
+  console.log(`NAME: ${item.name}`);
+  console.log(`GPA: ${item.gpa}`);
+  console.log("------------------------");
+});
